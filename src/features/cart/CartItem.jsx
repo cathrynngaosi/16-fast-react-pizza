@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 import { getCurrentQuantityByID } from "./cartSlice";
 
 function CartItem({ item }) {
-  const { pizzaID, name, quantity, totalPrice } = item;
-  const currentQuantity = useSelector(getCurrentQuantityByID(pizzaID));
+  const { pizzaId, name, quantity, totalPrice } = item;
+  const currentQuantity = useSelector(getCurrentQuantityByID(pizzaId));
   console.log(currentQuantity);
 
   return (
@@ -19,10 +19,10 @@ function CartItem({ item }) {
         <p className="text-small font-bold">{formatCurrency(totalPrice)}</p>
 
         <UpdateItemQuantity
-          pizzaID={pizzaID}
+          pizzaId={pizzaId}
           currentQuantity={currentQuantity}
         />
-        <DeleteItem pizzaID={pizzaID} />
+        <DeleteItem pizzaId={pizzaId} />
       </div>
     </li>
   );
